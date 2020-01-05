@@ -8,5 +8,8 @@
 <body>
     <h1>MYBOOKMARKER</h1>
     <p1>{{$message}}</p1>
+    @foreach($bookmarks as $bookmark)
+        <p>{{$bookmark -> content}}</p>
+    @endforeach
 </body>
 </html>

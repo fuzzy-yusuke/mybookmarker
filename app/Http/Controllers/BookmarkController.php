@@ -15,7 +15,8 @@ class BookmarkController extends Controller
     public function index()
     {
         $message='This is my bookmark memo.';
-        return view('index',['message'=>$message]); //html上にここで格納した変数の中身を表示させる為に渡す。
+        $bookmarks = Bookmark::all(); //データベースに格納されてあるデータを全て呼び出す。
+        return view('index',['message'=>$message,'bookmarks'=>$bookmarks]); //html上にここで格納した変数の中身を表示させる為に渡す。
     }
 
     /**
