@@ -14,7 +14,8 @@ class BookmarkController extends Controller
      */
     public function index()
     {
-        //
+        $message='This is my bookmark memo.';
+        return view('index',['message'=>$message]); //html上にここで格納した変数の中身を表示させる為に渡す。
     }
 
     /**
