@@ -46,9 +46,11 @@ class BookmarkController extends Controller
      * @param  \App\bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function show(bookmark $bookmark)
+    public function show(Request $request,$id,Bookmark $bookmark)
     {
-        //
+        $message='This is your bookmark.'.$id;
+        $bookmark=Bookmark::find($id); //$idに格納された番号と一致したデータを引っ張り出す。
+        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
     }
 
     /**

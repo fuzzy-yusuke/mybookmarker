@@ -9,7 +9,11 @@
     <h1>MYBOOKMARKER</h1>
     <p1>{{$message}}</p1>
     @foreach($bookmarks as $bookmark)
-        <p>{{$bookmark -> content}}</p>
+        <p>
+            <a href='{{route ("bookmark.show",["id"=>$bookmark->id])}}'>
+            {{$bookmark -> content}}
+            </a>
+            </p>
     @endforeach
 </body>
 </html>
