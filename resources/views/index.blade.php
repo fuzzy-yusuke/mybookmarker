@@ -12,6 +12,7 @@
         <p>
             <a href='{{route ("bookmark.show",["id"=>$bookmark->id])}}'>
             {{$bookmark -> content}}
+            {{$bokkmark->user_name}}
             </a>
             </p>
     @endforeach
