@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/bookmarks');
 });
 Route::get('/bookmark','BookmarkController@index')->name('bookmark.list');
+Route::get('/bookmark/new','BookmarkController@create')->name('bookmark.new');
 Route::get('/bookmark/{id}', 'BookmarkController@show')->name('bookmark.show');

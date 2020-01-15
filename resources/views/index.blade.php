@@ -11,10 +11,13 @@
     @foreach($bookmarks as $bookmark)
         <p>
             <a href='{{route ("bookmark.show",["id"=>$bookmark->id])}}'>
-            {{$bookmark -> content}}
+            {{$bookmark -> content}},
             {{$bokkmark->user_name}}
             </a>
             </p>
     @endforeach
+    <div>
+        <a href={{ route('bookmark.new')}}>新規登録</a>
+    </div>
 </body>
 </html>

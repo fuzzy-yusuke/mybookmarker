@@ -24,9 +24,14 @@ class BookmarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request,$request)
     {
-        //
+        $bookmark=new Bookmark();
+
+        $bookmark->content='Hello mybookmarker';
+        $bookmark->user_name='tester';
+        $bookmark->save(); //tinkerコマンドと同じ
+        return redirect('/bookmarks');
     }
 
     /**
