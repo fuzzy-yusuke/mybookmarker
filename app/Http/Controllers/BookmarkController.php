@@ -87,8 +87,10 @@ class BookmarkController extends Controller
      * @param  \App\bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bookmark $bookmark)
+    public function destroy(Request $request,$id,Bookmark $bookmark)
     {
-        //
+        $bookmark=Bookmark::find($id);
+        $bookmark->delete();
+        return redirect('/bookmarks');
     }
 }

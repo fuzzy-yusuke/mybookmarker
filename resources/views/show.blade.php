@@ -13,5 +13,10 @@
     <p>
         <a href={{route ('bookmark.list')}}>一 覧 に 戻 る</a>
     </p>
+    <div>
+        {{Form::open(['method' => 'delete','route'=> ['bookmark.delete',$bookmark->id]])}}
+        {{Form::submit('削除')}}
+        {{Form::close()}}
+    </div>
 </body>
 </html>
