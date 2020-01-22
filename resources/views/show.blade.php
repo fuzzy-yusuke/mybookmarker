@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='UTF-8'>
-    <title>mybookmarker</title>
-    <style>body {padding: 10px;}</style>
-</head>
-<body>
+@extends('content')
+
+@section('content')
     <h1>MYBOOKMARKER</h1>
     <p>{{$message}}</p>
     <p>{{$bookmark -> content}}</p>
@@ -18,5 +13,4 @@
         {{Form::submit('削除')}}
         {{Form::close()}}
     </div>
-</body>
-</html>
+@endsection
