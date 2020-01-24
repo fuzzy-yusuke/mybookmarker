@@ -12,6 +12,6 @@
             </p>
     @endforeach
     <div>
-        <a href={{ route('bookmark.new')}}>新規登録</a>
+        <a href={{ route('bookmark.new')}}>????</a>
     </div>
 @endsection
