@@ -3,9 +3,12 @@
 <head>
     <meta charset='UTF-8'>
     <title>mybookmarker</title>
-    <style>body {padding: 10px;}</style>
+    @include('style-sheet') <!--style-sheet.blade.phpを読み込む -->
 </head>
 <body>
-    @yield('content')
+    @include('nav') <!--nav.blade.phpを読み込む -->
+    <div class='container'>
+    @yield('content') <!--index.blade.phpのcontentセクションが入る -->
+    </div>
 </body>
 </html>
