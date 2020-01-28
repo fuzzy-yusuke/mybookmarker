@@ -3,6 +3,8 @@
 @section('content')
     <h1>MYBOOKMARKER</h1>
     <p1>{{$message}}</p1>
+    @include('search')
+    
     @foreach($bookmarks as $bookmark)
         <p>
             <a href='{{route ("bookmark.show",["id"=>$bookmark->id])}}'>
