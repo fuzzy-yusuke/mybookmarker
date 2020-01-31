@@ -12,11 +12,19 @@ class BookmarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $message='This is my bookmark memo.';
-        $bookmarks = Bookmark::all(); //データベースに格納されてあるデータを全て呼び出す。
-        return view('index',['message'=>$message,'bookmarks'=>$bookmarks]); //html上にここで格納した変数の中身を表示させる為に渡す。
+       if($request->filled('keyword')){
+          $keyword=$request->input('keyword')
+          $message='This is my bookmark memo.'.$keyword;
+          $bookmarks = Bookmark::where('content','like','%'.$keyword.'%')->get();
+           //データベースに格納されてあるデータの中で、入力されたキーワードが含まれているものを呼び出す。
+        }else{
+            $message='This is my bookmark memo.';
+            $bookmarks = Bookmark::all(); //データベースに格納されてあるデータを全て呼び出す。
+        }
+        return view('index',['message'=>$message,'bookmarks'=>$bookmarks]); 
+        //html上にここで格納した変数の中身を表示させる為に渡す。
     }
 
     /**
