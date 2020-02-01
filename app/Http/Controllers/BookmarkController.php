@@ -15,7 +15,7 @@ class BookmarkController extends Controller
     public function index(Request $request)
     {
        if($request->filled('keyword')){
-          $keyword=$request->input('keyword')
+          $keyword=$request->input('keyword');
           $message='This is my bookmark memo.'.$keyword;
           $bookmarks = Bookmark::where('content','like','%'.$keyword.'%')->get();
            //データベースに格納されてあるデータの中で、入力されたキーワードが含まれているものを呼び出す。
@@ -32,7 +32,7 @@ class BookmarkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request,$request)
+    public function create(Request $request)
     {
         $bookmark=new Bookmark();
 
