@@ -7,9 +7,9 @@
     
     @foreach($bookmarks as $bookmark)
         <p>
-            <a href='{{route ("bookmark.show",["id"=>$bookmark->id])}}'>
+            <a href='{{route ("bookmark.show",["id" => $bookmark->id])}}'>
             {{$bookmark -> content}},
-            {{$bokkmark->user_name}}
+            {{$bookmark -> user_name}}
             </a>
             </p>
     @endforeach

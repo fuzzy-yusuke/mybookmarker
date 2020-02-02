@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/bookmarks');
+    return redirect('/bookmark');
 });
 Route::get('/bookmark','BookmarkController@index')->name('bookmark.list');
 Route::get('/bookmark/new','BookmarkController@create')->name('bookmark.new');
