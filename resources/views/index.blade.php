@@ -1,4 +1,4 @@
-@extends('layput')
+@extends('layout')
 
 @section('content')
     <h1>MYBOOKMARKER</h1>
@@ -6,12 +6,12 @@
     @include('search')
     
     @foreach($bookmarks as $bookmark)
-        <p>
+        <p2>
             <a href='{{route ("bookmark.show",["id" => $bookmark->id])}}'>
             {{$bookmark -> content}},
             {{$bookmark -> user_name}}
             </a>
-            </p>
+            </p2>
     @endforeach
     <div>
         <a href='{{ route("bookmark.new")}}'>新 規 登 録</a>

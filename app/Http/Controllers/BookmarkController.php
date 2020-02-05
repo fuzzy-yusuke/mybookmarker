@@ -21,7 +21,8 @@ class BookmarkController extends Controller
            //データベースに格納されてあるデータの中で、入力されたキーワードが含まれているものを呼び出す。
         }else{
             $message='This is my bookmark memo.';
-            $bookmarks = Bookmark::all(); //データベースに格納されてあるデータを全て呼び出す。
+            $bookmarks = Bookmark::all();
+             //データベースに格納されてあるデータを全て呼び出す。
         }
         return view('index',['message'=>$message,'bookmarks'=>$bookmarks]); 
         //html上にここで格納した変数の中身を表示させる為に渡す。
@@ -39,7 +40,7 @@ class BookmarkController extends Controller
         $bookmark->content='Hello mybookmarker';
         $bookmark->user_name='tester';
         $bookmark->save(); //tinkerコマンドと同じ
-        return redirect('/bookmarks');
+        return redirect('/bookmark');
     }
 
     /**
