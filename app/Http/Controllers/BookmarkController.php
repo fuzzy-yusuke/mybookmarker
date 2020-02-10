@@ -49,9 +49,12 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id,Bookmark $bookmark)
     {
-        //
+        $message='This is your bookmark.'.$id;
+        $bookmark=Bookmark::find($id);
+         //$idに格納された番号と一致したデータを引っ張り出す。
+        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
     }
 
     /**
@@ -74,9 +77,12 @@ class BookmarkController extends Controller
      * @param  \App\bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function edit(bookmark $bookmark)
+    public function edit(Request $request,$id,Bookmark $bookmark)
     {
-        //
+        $message='Edit your bookmark.'.$id;
+        $bookmark=Bookmark::find($id);
+         //$idに格納された番号と一致したデータを引っ張り出す。
+        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
     }
 
     /**
