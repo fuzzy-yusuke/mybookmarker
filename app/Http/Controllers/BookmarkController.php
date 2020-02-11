@@ -35,7 +35,8 @@ class BookmarkController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        $message='New bookmark';
+        return view('new',['message'=>$message]);
     }
 
     /**
