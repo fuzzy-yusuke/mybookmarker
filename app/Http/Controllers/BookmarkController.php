@@ -35,12 +35,7 @@ class BookmarkController extends Controller
      */
     public function create(Request $request)
     {
-        $bookmark=new Bookmark();
-
-        $bookmark->content='Hello mybookmarker';
-        $bookmark->user_name='tester';
-        $bookmark->save(); //tinkerコマンドと同じ
-        return redirect('/bookmark');
+        //
     }
 
     /**
@@ -51,10 +46,13 @@ class BookmarkController extends Controller
      */
     public function store(Request $request,$id,Bookmark $bookmark)
     {
-        $message='This is your bookmark.'.$id;
-        $bookmark=Bookmark::find($id);
-         //$idに格納された番号と一致したデータを引っ張り出す。
-        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
+        $bookmark=new Bookmark();
+        //登録したブックマークをDBに格納させる
+        $bookmark->content=$request->content;
+        $bookmark->user_name=$request->user_name;
+        $bookmark->save();
+         //tinkerコマンドと同じ
+        return redirect()->route('bookmark.show',['id'=>$bookmark->id]);
     }
 
     /**
