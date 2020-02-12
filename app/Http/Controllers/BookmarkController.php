@@ -81,7 +81,7 @@ class BookmarkController extends Controller
         $message='Edit your bookmark.'.$id;
         $bookmark=Bookmark::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
-        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
+        return view('edit',['message'=>$message,'bookmark'=>$bookmark]);
     }
 
     /**
@@ -91,9 +91,15 @@ class BookmarkController extends Controller
      * @param  \App\bookmark  $bookmark
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bookmark $bookmark)
+    public function update(Request $request,$id, bookmark $bookmark)
     {
-        //
+        $bookmark=Bookmark::find($id);
+        //登録したブックマークをDBに格納させる
+        $bookmark->content=$request->content;
+        $bookmark->user_name=$request->user_name;
+        $bookmark->save();
+         //tinkerコマンドと同じ
+        return redirect()->route('bookmark.show',['id'=>$bookmark->id]);
     }
 
     /**
