@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return redirect('/bookmark');
 });
-Route::get('/bookmark','BookmarkController@index')->name('bookmark.list');
+Route::get('/bookmarks','BookmarkController@index')->name('bookmark.list');
 Route::get('/bookmark/new','BookmarkController@create')->name('bookmark.new');
 Route::get('/bookmark','BookmarkController@store')->name('bookmark.store');
 Route::get('/bookmark/edit/{id}','BookmarkController@edit')->name('bookmark.edit');
