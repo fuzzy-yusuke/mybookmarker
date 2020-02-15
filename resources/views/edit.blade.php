@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
         {{Form::submit('保存する',['class'=>'btn btn-primary'])}}
-        <a href={{ route('bookmark.list')}}>戻る</a>
+        <a href='{{ route("bookmark.list")}}'>戻る</a>
         </div>
         {{Form::close()}}
 @endsection
