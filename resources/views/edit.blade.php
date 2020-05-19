@@ -2,9 +2,9 @@
 <!--編集フォーム-->
 
 @section('content')
-    <h1>MYBOOKMARKER</h1>
+    <h1>MYPICTURE</h1>
     <p>{{$message}}</p>
-    {{Form::model($bookmark,['route'=>['bookmark.update',$bookmark->id]])}}
+    {{Form::model($picture,['route'=>['picture.update',$picture->id]])}}
     <!--「Form:model」ファザードを用いると、既に入っている値を自動で取得することが出来る。
     この場合は、既に登録したブックマークを取得する-->
         <div class='form-group'>
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
         {{Form::submit('保存する',['class'=>'btn btn-primary'])}}
-        <a href='{{ route("bookmark.list")}}'>戻る</a>
+        <a href='{{ route("picture.list")}}'>戻る</a>
         </div>
         {{Form::close()}}
 @endsection

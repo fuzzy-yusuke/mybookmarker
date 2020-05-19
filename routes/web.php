@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-    return redirect('/bookmark');
+    return redirect('/picture');
 });
-Route::get('/bookmarks','BookmarkController@index')->name('bookmark.list');
-Route::get('/bookmark/new','BookmarkController@create')->name('bookmark.new');
-Route::get('/bookmark','BookmarkController@store')->name('bookmark.store');
-Route::get('/bookmark/edit/{id}','BookmarkController@edit')->name('bookmark.edit');
-Route::post('/bookmark/update/{id}','BookmarkController@update')->name('bookmark.update');
-Route::get('/bookmark/{id}', 'BookmarkController@show')->name('bookmark.show');
-Route::delete('/bookmark/{id}','BookmarkController@destroy')->name('bookmark.delete');
+Route::get('/pictures','PictureController@index')->name('picture.list');
+Route::get('/picture/new','PictureController@create')->name('picture.new');
+Route::get('/picture','PictureController@store')->name('picture.store');
+Route::get('/picture/edit/{id}','PictureController@edit')->name('picture.edit');
+Route::post('/picture/update/{id}','PictureController@update')->name('picture.update');
+Route::get('/picture/{id}', 'PictureController@show')->name('picture.show');
+Route::delete('/picture/{id}','PictureController@destroy')->name('picture.delete');

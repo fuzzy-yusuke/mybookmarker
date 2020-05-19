@@ -13,7 +13,7 @@ class AddColumnUsername extends Migration
      */
     public function up()
     {
-        Schema::table('bookmarks', function (Blueprint $table) {
+        Schema::table('pictures', function (Blueprint $table) {
             $table->string('user_name');
         });
     }
@@ -25,7 +25,7 @@ class AddColumnUsername extends Migration
      */
     public function down()
     {
-        Schema::table('bookmark', function (Blueprint $table) {
+        Schema::table('picture', function (Blueprint $table) {
             //
         });
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\bookmark;
+use App\picture;
 use Illuminate\Http\Request;
 
-class BookmarkController extends Controller
+class pictureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,15 @@ class BookmarkController extends Controller
     {
        if($request->filled('keyword')){
           $keyword=$request->input('keyword');
-          $message='This is my bookmark memo.'.$keyword;
-          $bookmarks = Bookmark::where('content','like','%'.$keyword.'%')->get();
+          $message='This is my picture memo.'.$keyword;
+          $pictures = picture::where('content','like','%'.$keyword.'%')->get();
            //データベースに格納されてあるデータの中で、入力されたキーワードが含まれているものを呼び出す。
         }else{
-            $message='This is my bookmark memo.';
-            $bookmarks = Bookmark::all();
+            $message='This is my picture memo.';
+            $pictures = picture::all();
              //データベースに格納されてあるデータを全て呼び出す。
         }
-        return view('index',['message'=>$message,'bookmarks'=>$bookmarks]); 
+        return view('index',['message'=>$message,'pictures'=>$pictures]); 
         //html上にここで格納した変数の中身を表示させる為に渡す。
     }
 
@@ -35,7 +35,7 @@ class BookmarkController extends Controller
      */
     public function create(Request $request)
     {
-        $message='New bookmark';
+        $message='New picture';
         return view('new',['message'=>$message]);
     }
 
@@ -45,73 +45,73 @@ class BookmarkController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id,Bookmark $bookmark)
+    public function store(Request $request,$id,picture $picture)
     {
-        $bookmark=new Bookmark();
-        //登録したブックマークをDBに格納させる
-        $bookmark->content=$request->content;
-        $bookmark->user_name=$request->user_name;
-        $bookmark->save();
+        $picture=new picture();
+        //投稿した画像をDBに格納させる
+        $picture->content=$request->content;
+        $picture->user_name=$request->user_name;
+        $picture->save();
          //tinkerコマンドと同じ
-        return redirect()->route('bookmark.show',['id'=>$bookmark->id]);
+        return redirect()->route('picture.show',['id'=>$picture->id]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\bookmark  $bookmark
+     * @param  \App\picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id,Bookmark $bookmark)
+    public function show(Request $request,$id,picture $picture)
     {
-        $message='This is your bookmark.'.$id;
-        $bookmark=Bookmark::find($id);
+        $message='This is your picture.'.$id;
+        $picture=picture::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
-        return view('show',['message'=>$message,'bookmark'=>$bookmark]);
+        return view('show',['message'=>$message,'picture'=>$picture]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\bookmark  $bookmark
+     * @param  \App\picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request,$id,Bookmark $bookmark)
+    public function edit(Request $request,$id,picture $picture)
     {
-        $message='Edit your bookmark.'.$id;
-        $bookmark=Bookmark::find($id);
+        $message='Edit your picture.'.$id;
+        $picture=picture::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
-        return view('edit',['message'=>$message,'bookmark'=>$bookmark]);
+        return view('edit',['message'=>$message,'picture'=>$picture]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\bookmark  $bookmark
+     * @param  \App\picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id, bookmark $bookmark)
+    public function update(Request $request,$id, picture $picture)
     {
-        $bookmark=Bookmark::find($id);
+        $picture=picture::find($id);
         //登録したブックマークをDBに格納させる
-        $bookmark->content=$request->content;
-        $bookmark->user_name=$request->user_name;
-        $bookmark->save();
+        $picture->content=$request->content;
+        $picture->user_name=$request->user_name;
+        $picture->save();
          //tinkerコマンドと同じ
-        return redirect()->route('bookmark.show',['id'=>$bookmark->id]);
+        return redirect()->route('picture.show',['id'=>$picture->id]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\bookmark  $bookmark
+     * @param  \App\picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id,Bookmark $bookmark)
+    public function destroy(Request $request,$id,picture $picture)
     {
-        $bookmark=Bookmark::find($id);
-        $bookmark->delete();
-        return redirect('/bookmarks');
+        $picture=picture::find($id);
+        $picture->delete();
+        return redirect('/pictures');
     }
 }

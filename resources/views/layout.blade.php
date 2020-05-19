@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset='UTF-8'>
-    <title>mybookmarker</title>
+    <title>mypicture</title>
     @include('style-sheet') <!--style-sheet.blade.phpを読み込む -->
 </head>
 <body>
