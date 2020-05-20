@@ -62,7 +62,7 @@ class PictureController extends Controller
      * @param  \App\picture  $picture
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id,picture $picture)
+    public function show(Request $request,$id,Picture $picture)
     {
         $message='This is your picture.'.$id;
         $picture=Picture::find($id);
