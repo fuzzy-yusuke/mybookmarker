@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\picture;
 use Illuminate\Http\Request;
+use App\Picture;
 
-class pictureController extends Controller
+class PictureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,12 @@ class pictureController extends Controller
     {
        if($request->filled('keyword')){
           $keyword=$request->input('keyword');
-          $message='This is my picture memo.'.$keyword;
-          $pictures = picture::where('content','like','%'.$keyword.'%')->get();
+          $message='「'.$keyword.'」で検索';
+          $pictures = Picture::where('content','like','%'.$keyword.'%')->get();
            //データベースに格納されてあるデータの中で、入力されたキーワードが含まれているものを呼び出す。
         }else{
             $message='This is my picture memo.';
-            $pictures = picture::all();
+            $pictures = Picture::all();
              //データベースに格納されてあるデータを全て呼び出す。
         }
         return view('index',['message'=>$message,'pictures'=>$pictures]); 
@@ -48,9 +48,9 @@ class pictureController extends Controller
     public function store(Request $request,$id,picture $picture)
     {
         $picture=new picture();
-        //投稿した画像をDBに格納させる
-        $picture->content=$request->content;
+        //投稿した画像とコメントをDBに格納させる
         $picture->user_name=$request->user_name;
+        $picture->content=$request->content;
         $picture->save();
          //tinkerコマンドと同じ
         return redirect()->route('picture.show',['id'=>$picture->id]);
@@ -65,7 +65,7 @@ class pictureController extends Controller
     public function show(Request $request,$id,picture $picture)
     {
         $message='This is your picture.'.$id;
-        $picture=picture::find($id);
+        $picture=Picture::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
         return view('show',['message'=>$message,'picture'=>$picture]);
     }
@@ -79,7 +79,7 @@ class pictureController extends Controller
     public function edit(Request $request,$id,picture $picture)
     {
         $message='Edit your picture.'.$id;
-        $picture=picture::find($id);
+        $picture=Picture::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
         return view('edit',['message'=>$message,'picture'=>$picture]);
     }
@@ -93,7 +93,7 @@ class pictureController extends Controller
      */
     public function update(Request $request,$id, picture $picture)
     {
-        $picture=picture::find($id);
+        $picture=Picture::find($id);
         //登録したブックマークをDBに格納させる
         $picture->content=$request->content;
         $picture->user_name=$request->user_name;
@@ -110,7 +110,7 @@ class pictureController extends Controller
      */
     public function destroy(Request $request,$id,picture $picture)
     {
-        $picture=picture::find($id);
+        $picture=Picture::find($id);
         $picture->delete();
         return redirect('/pictures');
     }
