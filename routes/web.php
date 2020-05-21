@@ -21,3 +21,4 @@ Route::get('/picture/edit/{id}','PictureController@edit')->name('picture.edit');
 Route::post('/picture/update/{id}','PictureController@update')->name('picture.update');
 Route::get('/picture/{id}', 'PictureController@show')->name('picture.show');
 Route::delete('/picture/{id}','PictureController@destroy')->name('picture.delete');
+?>
