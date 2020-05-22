@@ -8,14 +8,14 @@
 @include('search')
 <table class='table table-striped table-hover'>
     @foreach($pictures as $picture)
-    <div>
-        <p2>
+    <tr>
+        <td>
             <a href='{{ route("picture.show",["id" => $picture->id])}}'>
                 {{$picture -> content}},
                 {{$picture -> user_name}}
             </a>
-        </p2>
-    </div>
+        </td>
+    </tr>
     @endforeach
 </table>
 <div>

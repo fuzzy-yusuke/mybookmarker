@@ -67,7 +67,7 @@ class PictureController extends Controller
         $message='This is your picture.'.$id;
         $picture=Picture::find($id);
          //$idに格納された番号と一致したデータを引っ張り出す。
-        return view('picture.show')->with('message',$message,'picture',$picture);
+        return view('show',['message'=>$message,'picture'=>$picture]);
     }
 
     /**
