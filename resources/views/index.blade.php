@@ -19,6 +19,6 @@
     @endforeach
 </table>
 <div>
-    <a href='{{ route("picture.new")}}'>新 規 登 録</a>
+    <a href='{{ route("picture.new")}}' class='btn btn-primary'>新規投稿</a>
 </div>
 @endsection
