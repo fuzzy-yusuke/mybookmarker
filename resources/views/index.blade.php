@@ -5,7 +5,7 @@
 <div>
     <p1>{{$message}}</p1>
 </div>
-@include('search')
+
 <table class='table table-striped table-hover'>
     @foreach($pictures as $picture)
     <tr>
