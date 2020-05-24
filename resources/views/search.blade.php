@@ -1,8 +1,7 @@
 {{Form::open (['method' => 'get']) }}
     {{ csrf_field()}} <!-- クロスサイトリクエストフォージェリによる不正リクエストを防ぐ -->
 <div class='form-group' style="position:absolute; top:0px; right:200px">
-    {{Form::label('keyword','キーワード:')}} 
-    {{Form::text('keyword',null,['class'=>'form-control'])}}
+    {{Form::text('keyword',null,['class'=>'form-control','placeholder'=>'キーワードを入力'])}}
 </div>
 
 <div class style="position:absolute; top:0px; right:100px">
