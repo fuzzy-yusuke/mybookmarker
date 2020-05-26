@@ -45,14 +45,12 @@ class PictureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id,picture $picture)
+    public function store(Request $request)
     {
-        $picture=new picture();
-        //投稿した画像とコメントをDBに格納させる
+        $picture=new Picture;                                 //投稿した画像とコメントをDBに格納させる
         $picture->user_name=$request->user_name;
         $picture->content=$request->content;
-        $picture->save();
-         //tinkerコマンドと同じ
+        $picture->save();                                       //tinkerコマンドと同じ
         return redirect()->route('picture.show',['id'=>$picture->id]);
     }
 
