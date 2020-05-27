@@ -51,6 +51,8 @@ class PictureController extends Controller
         //投稿した画像とコメントをDBに格納させる
         $picture->user_name=$request->user_name;
         $picture->content=$request->content;
+        $filename=$request->file('thefile')->getClientOriginalName();  //storageフォルダに投稿した画像を保存する
+        $request->file('thefile')->storeAs('images', $filename);       //storageフォルダに保存された画像のファイル名をそのまま使う            
         $picture->save();
          //tinkerコマンドと同じ
         return redirect()->route('picture.show',['id'=>$picture->id]);
