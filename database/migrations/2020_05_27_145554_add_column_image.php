@@ -14,6 +14,7 @@ class AddColumnImage extends Migration
     public function up()
     {
         Schema::table('pictures', function (Blueprint $table) {
+            //投稿した画像のファイルパスを格納
             $table->string('image');
         });
     }
@@ -25,7 +26,7 @@ class AddColumnImage extends Migration
      */
     public function down()
     {
-        Schema::table('picture', function (Blueprint $table) {
+        Schema::table('pictures', function (Blueprint $table) {
             //
         });
     }

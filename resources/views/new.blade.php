@@ -15,6 +15,7 @@
     {{Form::text('content',null)}}
 </div>
 <div class='form-group'>
+    <!--ファイルを読み込む-->
     {{Form::file('thefile')}}
 </div>
 <div class="form-group">
