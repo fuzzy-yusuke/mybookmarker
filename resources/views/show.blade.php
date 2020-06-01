@@ -6,6 +6,7 @@
     <p>{{$message}}</p>
     <p>{{$picture -> content}}</p>
     <p>{{$picture -> user_name}}</p>
+    <p><img src="storage/app/{{$picture->image}}"></p>
     <p>
         <a href='{{route ("picture.list")}}' class='btn btn-outline-primary'>一覧に戻る</a>
         <a href='{{route ("picture.edit",["id"=>$picture->id])}}' class='btn btn-outline-primary'>編集</a>
