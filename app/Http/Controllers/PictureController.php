@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Picture;
+use App\User;
 
 class PictureController extends Controller
 {
@@ -51,9 +52,9 @@ class PictureController extends Controller
         //投稿した画像とコメントをDBに格納させる
         $picture->user_name=$request->user_name;
         $picture->content=$request->content;
+        $picture->image=$request->file('thefile')->storeAs('images',User::id().'jpeg');       //storageフォルダに投稿した画像を保存しファイルパスを格納
         $picture->save();
-        $picture->image=$request->file('thefile')->storeAs('images','image'.Picture::id()->id);       //storageフォルダに投稿した画像を保存しファイルパスを格納 
-        //tinkerコマンドと同じ
+         //tinkerコマンドと同じ
         return redirect()->route('picture.show',['id'=>$picture->id]);
     }
 
