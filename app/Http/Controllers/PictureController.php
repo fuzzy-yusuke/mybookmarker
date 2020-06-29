@@ -114,7 +114,7 @@ class PictureController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request,$id,picture $picture)
-    {
+    {   //削除
         $picture=Picture::find($id);
         $filename=$picture->image;
         Storage::disk('local')->delete('public/storage/'.$picture->image);
