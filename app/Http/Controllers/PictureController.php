@@ -117,6 +117,7 @@ class PictureController extends Controller
     {
         $picture=Picture::find($id);
         $filename=$picture->image;
+        Storage::disk('local')->delete('public/storage/'.$picture->image);
         $picture->delete();
         return redirect('/pictures');
     }
