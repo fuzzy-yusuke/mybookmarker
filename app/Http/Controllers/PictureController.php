@@ -116,8 +116,7 @@ class PictureController extends Controller
     public function destroy(Request $request,$id,picture $picture)
     {   //削除
         $picture=Picture::find($id);
-        $filename=$picture->image;
-        Storage::disk('local')->delete('public/storage/'.$picture->image);
+        \File::delete('app/public/storage/'.$picture->image);
         $picture->delete();
         return redirect('/pictures');
     }
