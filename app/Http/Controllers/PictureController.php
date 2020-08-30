@@ -99,7 +99,7 @@ class PictureController extends Controller
     public function update(Request $request,$id, picture $picture)
     {
         $picture=Picture::find($id);
-        //登録したブックマークをDBに格納させる
+        //登録した内容をDBに格納させる
         $picture->content=$request->content;
         $picture->user_name=$request->user_name;
         $picture->save();
