@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect('/picture');
+    return redirect('/pictures');
 });
 Route::get('/pictures','PictureController@index')->name('picture.list');
 Route::get('/picture/new','PictureController@create')->name('picture.new');
